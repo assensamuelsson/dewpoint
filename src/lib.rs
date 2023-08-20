@@ -23,7 +23,7 @@ fn calc_dewpoint(trh: &TRH) -> f64 {
     let b = 17.67;
     let c = 243.5;
 
-    let gamma = (100.0/trh.rh).ln() + (b * trh.t) / (c + trh.t);
+    let gamma = (trh.rh / 100.0).ln() + (b * trh.t) / (c + trh.t);
 
     c * gamma / (b - gamma)
 }
@@ -38,7 +38,7 @@ fn calc_mould_index(trh: &TRH) -> i32 {
         [0,93,95,100], // 3°
         [0,91,93,98],  // 4°
         [0,88,92,97],  // 5°
-        [0,87,91,96],  // 6°  
+        [0,87,91,96],  // 6°
         [0,86,91,95],  // 7°  
         [0,84,90,95],  // 8°  
         [0,83,89,94],  // 9°  
